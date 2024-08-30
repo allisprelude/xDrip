@@ -37,6 +37,10 @@
     <string name="pref_header_cloud_storage">Stockage Cloud</string>
     <string name="auto_configure_title">Configuration automatique</string>
     <string name="prefs_auto_config_summary">Configuration automatique en utilisant un code-barres.</string>
+    <string name="auto_config_cam_title">Caméra</string>
+    <string name="auto_config_cam_summary">Scannez un QR code avec votre mobile (recommandé)</string>
+    <string name="auto_config_image_title">Fichier image</string>
+    <string name="auto_config_image_summary">Vous pouvez enregistrer un code QR en tant que fichier image (comme .png ou .jpeg) sur votre mobile. Ensuite, utilisez cette option pour scanner le code QR du fichier enregistré.</string>
     <string name="scan_share2_barcode">Numériser le code-barres Share</string>
     <string name="pref_share2_scan_barcode_summary">Ou scanner le code-barres sur le récepteur Share</string>
     <!-- MongoDB Settings -->
@@ -115,6 +119,7 @@
     <string name="title_activity_update">Mise à jour xDrip+ disponible</string>
     <string name="title_activity_display_qrcode">Partager les paramètres via le code QR</string>
     <string name="title_activity_send_feed_back">Envoyer des commentaires à Jamorham</string>
+    <string name="title_activity_save_logs">Sauvegarder le journal</string>
     <string name="title_activity_maps">Carte Parakeet</string>
     <string name="title_activity_display_preferences">Préférences d\'affichage</string>
     <string name="export_submenu">Fonctionnalités Import / Export</string>
@@ -394,7 +399,9 @@
     <string name="please_enter_your_question_or_comments_here">S\'il vous plaît entrez votre question ou commentaire.\n\nSi vous fournissez une adresse e-mail, vous pouvez obtenir une réponse. </string>
     <string name="optional_contact_info_here_eg_email">Information de contact facultative, par exemple email</string>
     <string name="send_message">Envoyer le message</string>
+    <string name="save_logs">Sauvegarder le journal</string>
     <string name="please_indicate_what_you_think_of_the_app_generally">S\'il vous plaît indiquez ce que vous pensez de l\'application en général</string>
+    <string name="log_confidential_note">Attention !\nLes journaux peuvent contenir des informations confidentielles telles que des mots de passe ou des identifiants d\'utilisateur.</string>
     <string name="preferences_saved_in_sdcard_downloads">Préférences enregistrées dans dossier Downloads sur stockage interne</string>
     <string name="could_not_write_to_sdcard_check_perms">Impossible d\'écrire sur la carte SD - Vérifier les autorisations ?</string>
     <string name="loaded_preferences_restarting">Préférences chargées! - Redémarrage</string>
@@ -1170,6 +1177,8 @@
     <string name="use_mobile_data">Utiliser les données mobiles</string>
     <string name="summary_cloud_storage_api_download_enable">Essayer également de télécharger des données depuis Nightscout</string>
     <string name="title_cloud_storage_api_download_enable">Télécharger les données</string>
+    <string name="title_cloud_storage_api_download_from_xdrip">Ignorer les éléments de xDrip</string>
+    <string name="summary_cloud_storage_api_download_from_xdrip">Éviter de télécharger les éléments chargés par xDrip</string>
     <string name="summary_bluetooth_meter_for_calibrations_auto">Calibrer en utilisant de nouvelles lectures de glycémie si les conditions semblent correctes sans demander confirmation (expérimental)</string>
     <string name="title_bluetooth_meter_for_calibrations_auto">Calibration automatique</string>
     <string name="title_rest_api_extra_options">Options supplémentaires</string>
@@ -1342,7 +1351,7 @@
     <string name="summary_ob1_initiate_bonding_flag">Le collecteur OB1 peut initier l\'association.</string>
     <string name="title_ob1_initiate_bonding_flag">Permettre à l\'OB1 d\'initier l\'association</string>
     <string name="title_old_g5_options">Ancien paramètres du Collecteur G5</string>
-    <string name="title_g5g6_battery_options">Options de batterie G5/G6/G7/Dex1</string>
+    <string name="title_g5g6_battery_options">Options de batterie G5/G6/Dex1</string>
     <string name="title_g5_battery_warning_level">Ajuster le niveau d\'alerte batterie</string>
     <string name="title_plugins_and_features">Plugins et fonctionnalités</string>
     <string name="title_color_heart_rate1">Capteur de fréquence cardiaque</string>
@@ -1388,6 +1397,17 @@
     <string name="title_use_number_icon_large">Utiliser l\'icône Valeur grand</string>
     <string name="summary_number_icon_large_arrow">Affiche la flèche de tendance dans l\'icône large</string>
     <string name="title_number_icon_large_arrow">Afficher la flèche dans l\'icône grande</string>
+    <string name="title_xdrip_plus_accessibility">Paramètres \"Always On Display\"</string>
+    <string name="summary_aod_use_top">Utiliser le premier cinquième de l\'écran pour le widget AOD</string>
+    <string name="title_aod_use_top">Utiliser le haut</string>
+    <string name="summary_aod_use_top_center">Utiliser le deuxième cinquième de l\'écran pour le widget AOD</string>
+    <string name="title_aod_use_top_center">Utiliser le milieu haut</string>
+    <string name="summary_aod_use_center">Utiliser le troisième cinquième de l\'écran pour le widget AOD</string>
+    <string name="title_aod_use_center">Utiliser le milieu</string>
+    <string name="summary_aod_use_center_bottom">Utiliser le quatrième cinquième de l\'écran pour le widget AOD</string>
+    <string name="title_aod_use_center_bottom">Utiliser le milieu bas</string>
+    <string name="summary_aod_use_bottom">Utiliser le dernier cinquième de l\'écran pour le Widget AOD</string>
+    <string name="title_aod_use_bottom">Utiliser le bas</string>
     <string name="summary_show_home_on_boot">Afficher l\'écran xDrip automatiquement après le démarrage de l\'appareil</string>
     <string name="title_show_home_on_boot">Afficher xDrip au démarrage</string>
     <string name="eula">EULA</string>
@@ -1433,7 +1453,10 @@
     <string name="summary_notification_channels_grouping">Si les notifications doivent être groupées ensemble. Incompatible avec l\'option \'Numéro élément dans la zone de notification\'</string>
     <string name="title_notification_channels_grouping">Grouper les notifications par fil</string>
     <string name="summary_delay_ascending_3min">Pour le profil de volume ascendant, retarder le démarrage du son d\'alerte de 3 minutes. Le vibreur (si activé) démarre dès que l\'alerte se déclenche, quel que soit ce paramètre.</string>
+    <string name="title_ascending_volume">Réglages du volume croissant</string>
     <string name="title_delay_ascending_3min">Délai du volume ascendant</string>
+    <string name="summary_ascending_volume_to_medium">Lorsqu\'il est activé, le profil de volume ascendant augmentera vers le volume moyen au lieu du maximum</string>
+    <string name="title_ascending_volume_to_medium">Augmentation vers le milieu</string>
     <string name="summary_play_sound_for_initial_calibration">Émettre un son lorsque la calibration initiale est demandée</string>
     <string name="title_play_sound_for_initial_calibration">Alerte initiale</string>
     <string name="category_noisy_readings">Lectures de bruits</string>
@@ -1712,8 +1735,9 @@
     <string name="special_pairing_workaround">Contournement de jumelage spécial</string>
     <string name="save_power">Économiser l\'énergie</string>
     <string name="reduce_battery_and_network_overhead">Réduire la charge sur la batterie et le réseau en utilisant le traitement par lots et en excluant les données inutiles</string>
-    <string name="simplify_graphs_by_smoothing_out_irregularities">Simplifier les graphiques en lissant les irrégularités</string>
+    <string name="simplify_graphs_by_smoothing_out_irregularities">Simplifier les graphiques en lissant les irrégularités des lectures précédentes.  La lecture actuelle, les alertes et la valeur de diffusion ne sont pas affectées par ce paramètre.  </string>
     <string name="graph_smoothing">Lissage du graphique</string>
+    <string name="enable_graph_smoothing">Activer</string>
     <string name="last_reading">Dernière lecture</string>
     <string name="select_file_for_alert">Sélectionner le son pour l\'alerte</string>
     <string name="cannot_choose_file_without_permission">Impossible de choisir le fichier sans l\'autorisation de stockage</string>
@@ -1767,6 +1791,7 @@
     <string name="cloud_backup">Sauvegarde dans le Cloud</string>
     <string name="select_automatic_or_select_alternate">Sélectionner Automatique pour que xDrip gère les fichiers dans Google Drive ou sélectionner un autre fichier spécifique à utiliser si vous devez restaurer à partir d\'ailleurs.</string>
     <string name="restoring_backup_will_erase_warning">Restaurer une sauvegarde effacera vos paramètres et données actuelles de la sauvegarde.\n\nÊtes-vous absolument sûr de vouloir le faire ?</string>
+    <string name="you_cannot_undo_delete_alert">Vous ne pourrez pas annuler cela !\n\nÊtes-vous sûr de vouloir supprimer cette alerte ?</string>
     <string name="this_backup_looks_like_came_from_different_format_string">Cette sauvegarde semble venir d\'un autre appareil :\n%s\nÊtes-vous sûr de vouloir restaurer à partir de cette sauvegarde ?</string>
     <string name="megabyte_format_string">%.1f Mo</string>
     <string name="manual_selection_google_drive_file_warning">Vous avez sélectionné un fichier de Google Drive, mais ce n\'est pas géré automatiquement par xDrip donc il ne peut être utilisé que pour les sauvegardes et la restauration manuelles.\n\nAucune sauvegarde automatique ne se produira avec ce fichier.\n\nContinuer ?</string>
@@ -1815,4 +1840,26 @@
     <string name="carelink_credential_status_access_expired">Accès expiré! Vais actualiser !</string>
     <string name="carelink_credential_status_refresh_expired">Connexion expirée! Veuillez vous connecter!</string>
     <string name="data_source">Source de données:</string>
+    <string name="disable_collection">Désactiver la collection</string>
+    <string name="insulin_pens">Stylos à Insuline</string>
+    <string name="editing">Modification</string>
+    <string name="enable_missed_reading_alert">Activer l\'alerte de lecture manquée</string>
+    <string name="alert_if_no_data_received_in_colon">Alerte si aucune donnée reçue dans:</string>
+    <string name="wait_before_raising_the_same_alert_after_snooze_colon">Nombre de minutes avant de déclencher la même alerte après sa mise en veille:</string>
+    <string name="reraise_alerts_before_snooze_time">Relancer les alertes avant la durée de mise en veille</string>
+    <string name="alert_reraise_time_colon">Délai de relance de l\'alerte:</string>
+    <string name="select_start_time">Sélectionner l’heure de début</string>
+    <string name="select_end_time">Sélectionner l\'heure de fin</string>
+    <string name="accept_glucose">Accepter la Glycémie</string>
+    <string name="process_glucose_data_received">Traiter les données de glucose reçues de l\'application NSClient</string>
+    <string name="use_health_connect">Utiliser Health Connect</string>
+    <string name="audio_focus">Priorité audio</string>
+    <string name="audio_focus_summary">Choisir ce qu\'il faut faire avec les autres applications lors de lecture d\'alertes et réglage du volume du système</string>
+    <string name="audio_focus_dont_adjust_other_app_sounds">Ne pas ajuster les sons des autres applications</string>
+    <string name="audio_focus_lower_volume_of_other_apps">Réduire le volume des autres applications</string>
+    <string name="audio_focus_pause_other_apps_playing_audio">Mettre en pause les autres applications en cours de lecture audio</string>
+    <string name="audio_focus_pause_all_other_sounds">Mettre en pause tous les autres sons</string>
+    <string name="use_camera_light">Utiliser la lumière de la caméra</string>
+    <string name="use_camera_light_summary">Allumer la lumière de la caméra lors des alertes si connecté à un chargeur</string>
+    <string name="g7_should_start_automatically">Le G7 devrait démarrer automatiquement</string>
 </resources>

@@ -37,6 +37,10 @@
     <string name="pref_header_cloud_storage">Memorizza nel Cloud</string>
     <string name="auto_configure_title">Configurazione automatica</string>
     <string name="prefs_auto_config_summary">Configurazione automatica utilizzando un codice QR.</string>
+    <string name="auto_config_cam_title">Camera</string>
+    <string name="auto_config_cam_summary">Scansiona un codice QR con il tuo cellulare (consigliato)</string>
+    <string name="auto_config_image_title">File immagine</string>
+    <string name="auto_config_image_summary">Puoi salvare un codice QR come un file immagine (come .png o .jpeg) sul tuo cellulare. Quindi, utilizzare questa opzione per scansionare il codice QR dal file salvato.</string>
     <string name="scan_share2_barcode">Scan Condividi Barcode</string>
     <string name="pref_share2_scan_barcode_summary">Oppure scansiona il codice sul ricevitore</string>
     <!-- MongoDB Settings -->
@@ -115,6 +119,7 @@
     <string name="title_activity_update">xDrip+ Aggiornamento disponibile</string>
     <string name="title_activity_display_qrcode">Condividi impostazioni tramite il codice QR</string>
     <string name="title_activity_send_feed_back">Invia Feedback a Jamorham</string>
+    <string name="title_activity_save_logs">Salva Log</string>
     <string name="title_activity_maps">Mappa Parakeet</string>
     <string name="title_activity_display_preferences">Mostra Preferenze</string>
     <string name="export_submenu">Funzioni di importazione / esportazione</string>
@@ -394,7 +399,9 @@
     <string name="please_enter_your_question_or_comments_here">Inserisci la tua domanda o commenti qui.\n\nSe si fornisce un indirizzo email si può ottenere una risposta.\n\n</string>
     <string name="optional_contact_info_here_eg_email">Aggiungi tuoi contatti qui qui, ad esempio, e-mail</string>
     <string name="send_message">Invia messaggio</string>
+    <string name="save_logs">Salva Log</string>
     <string name="please_indicate_what_you_think_of_the_app_generally">Si prega di indicare quello che pensi dell\'app in generale</string>
+    <string name="log_confidential_note">Attenzione!\nI log possono contenere informazioni riservate come password o ID utente.</string>
     <string name="preferences_saved_in_sdcard_downloads">Preferenze salvate in Download sdcard</string>
     <string name="could_not_write_to_sdcard_check_perms">Impossibile scrivere sul sdcard - i permessi di controllo?</string>
     <string name="loaded_preferences_restarting">Preferenze caricate! - Riavvio</string>
@@ -1170,6 +1177,8 @@
     <string name="use_mobile_data">Utilizza rete dati mobile</string>
     <string name="summary_cloud_storage_api_download_enable">Prova anche a scaricare i dati da Nightscout</string>
     <string name="title_cloud_storage_api_download_enable">Scarica dati</string>
+    <string name="title_cloud_storage_api_download_from_xdrip">Ignora gli elementi provenienti da xDrip</string>
+    <string name="summary_cloud_storage_api_download_from_xdrip">Non scaricare gli elementi caricati da xDrip</string>
     <string name="summary_bluetooth_meter_for_calibrations_auto">Calibra automaticamente utilizzando le letture di glicemia se le condizioni sembrano giuste, senza chiedere conferma (sperimentale)</string>
     <string name="title_bluetooth_meter_for_calibrations_auto">Calibrazione automatica</string>
     <string name="title_rest_api_extra_options">Altre opzioni</string>
@@ -1426,7 +1435,10 @@
     <string name="summary_notification_channels_grouping">Se le notifiche devono essere raggruppate insieme. Incompatibili con l\'opzione \'Numero nell\'area di Notifica\'</string>
     <string name="title_notification_channels_grouping">Raggruppa le notifiche</string>
     <string name="summary_delay_ascending_3min">Per il profilo di volume crescente, ritarda di 3 minuti l\'inizio del suono di allarme. La vibrazione (se abilitata) inizia non appena l\'avviso si attiva, indipendentemente da questa impostazione.</string>
+    <string name="title_ascending_volume">Impostazioni Volume Crescente</string>
     <string name="title_delay_ascending_3min">Ritardo Volume Crescente</string>
+    <string name="summary_ascending_volume_to_medium">Se abilitato, il volume aumenterà fino al volume medio invece del volume massimo</string>
+    <string name="title_ascending_volume_to_medium">Aumenta fino a medio</string>
     <string name="summary_play_sound_for_initial_calibration">Suona quando viene richiesta la calibrazione iniziale</string>
     <string name="title_play_sound_for_initial_calibration">Avviso iniziale</string>
     <string name="category_noisy_readings">Letture rumorose</string>
@@ -1707,6 +1719,7 @@
     <string name="reduce_battery_and_network_overhead">Riduce l\'utilizzo della batteria dei dati di rete con l\'elaborazione in batch escludendo dati inutili</string>
     <string name="simplify_graphs_by_smoothing_out_irregularities">Semplifica i grafici lisciando le irregolarità</string>
     <string name="graph_smoothing">Lisciamento del Grafico</string>
+    <string name="enable_graph_smoothing">Abilita</string>
     <string name="last_reading">Ultima lettura</string>
     <string name="select_file_for_alert">Seleziona Suoneria Allarme</string>
     <string name="cannot_choose_file_without_permission">Impossibile scegliere il file senza i permessi di accesso alla memoria</string>
@@ -1760,6 +1773,7 @@
     <string name="cloud_backup">Backup nel Cloud</string>
     <string name="select_automatic_or_select_alternate">Selezionare Automatico per permettere a xDrip di gestire i file nel Google Drive o selezionare un file alternativo per ripristinare da altrove.</string>
     <string name="restoring_backup_will_erase_warning">Il ripristino di un backup cancellerà le impostazioni e i dati correnti con quello dal backup.\n\nSei assolutamente sicuro di voler fare questo?</string>
+    <string name="you_cannot_undo_delete_alert">Non potrai annullare questa operazione!\n\nSei sicuro di voler eliminare questo avviso?</string>
     <string name="this_backup_looks_like_came_from_different_format_string">Questo backup sembra provenire da un altro dispositivo:\n%s\nSei sicuro di voler ripristinare da questo backup?</string>
     <string name="megabyte_format_string">%.1f MB</string>
     <string name="manual_selection_google_drive_file_warning">Hai selezionato un file da Google Drive, ma questo non è gestito automaticamente da xDrip. Può essere utilizzato solo per backup e ripristino manuali.\n\nNon verrà effettuato alcun backup automatico con questo file.\n\nContinuare?</string>
@@ -1800,4 +1814,26 @@
     <string name="carelink_credential_status_access_expired">Accesso scaduto! Si aggiornerà!</string>
     <string name="carelink_credential_status_refresh_expired">Login scaduto! Effettua il login!</string>
     <string name="data_source">Sorgente Dati:</string>
+    <string name="disable_collection">Disabilita Collezione</string>
+    <string name="insulin_pens">Penne Insuliniche</string>
+    <string name="editing">Modifica</string>
+    <string name="enable_missed_reading_alert">Abilita Avviso Lettura Mancata</string>
+    <string name="alert_if_no_data_received_in_colon">Avviso se non ci sono dati ricevuti in:</string>
+    <string name="wait_before_raising_the_same_alert_after_snooze_colon">Attesa prima di ripetere lo stesso avviso dopo averlo silenziato:</string>
+    <string name="reraise_alerts_before_snooze_time">Ripeti allarmi prima della fine silenziamento</string>
+    <string name="alert_reraise_time_colon">Tempo prima di ripetere l\'avviso:</string>
+    <string name="select_start_time">Seleziona orario inizio</string>
+    <string name="select_end_time">Seleziona orario fine</string>
+    <string name="accept_glucose">Accetta Glucosio</string>
+    <string name="process_glucose_data_received">Usa i dati di glicemia ricevuti dall\'app NSClient</string>
+    <string name="use_health_connect">Usa Health Connect</string>
+    <string name="audio_focus">Focus Audio</string>
+    <string name="audio_focus_summary">Scegli cosa fare con altre app durante la riproduzione degli avvisi e la regolazione dei livelli di volume del sistema</string>
+    <string name="audio_focus_dont_adjust_other_app_sounds">Non regolare il volume delle altre app</string>
+    <string name="audio_focus_lower_volume_of_other_apps">Abbassa il volume delle altre app</string>
+    <string name="audio_focus_pause_other_apps_playing_audio">Pausa le altre applicazioni in riproduzione audio</string>
+    <string name="audio_focus_pause_all_other_sounds">Sospendi tutti gli altri suoni</string>
+    <string name="use_camera_light">Usa Torcia</string>
+    <string name="use_camera_light_summary">Lampeggia la torcia durante gli avvisi quando collegato a un caricabatterie</string>
+    <string name="g7_should_start_automatically">G7 dovrebbe avviarsi automaticamente</string>
 </resources>
