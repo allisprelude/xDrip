@@ -160,8 +160,17 @@ public class FloatingWidgetService extends Service implements BloodSugarUpdateRe
             String timeInfo = timeDiff + " mins ago";
             mTextViewBloodSugarTime.setText(timeInfo);
 
-            // 第二行：血糖值（已包含箭头） + 变化值
+            // 第二行：血糖值 + 箭头 + 增量值（小字体）
             String bgValueStr = bgReading.displayValue(null);
+
+            // 获取趋势箭头
+            String arrow = "";
+            try {
+                arrow = bgReading.displaySlopeArrow();
+                if (arrow == null) arrow = "";
+            } catch (Exception e) {
+                arrow = "";
+            }
 
             // 计算血糖变化值
             String changeValue = "+0.0"; // 默认值
@@ -202,10 +211,16 @@ public class FloatingWidgetService extends Service implements BloodSugarUpdateRe
                 // 使用默认值
             }
 
-            // 格式化显示：血糖值（含箭头） + 空格 + 变化值
-            // 不再添加额外的箭头，因为bgValueStr已经包含了
-            String finalDisplay = bgValueStr + " " + changeValue;
-            mTextViewBloodSugar.setText(finalDisplay);
+            // 格式化显示：血糖值 + 箭头 + 小字体增量值
+            // 使用HTML格式来实现小字体效果
+            String finalDisplay = bgValueStr + arrow + " <small>" + changeValue + "</small>";
+
+            // 设置HTML文本以支持小字体
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                mTextViewBloodSugar.setText(android.text.Html.fromHtml(finalDisplay, android.text.Html.FROM_HTML_MODE_COMPACT));
+            } else {
+                mTextViewBloodSugar.setText(android.text.Html.fromHtml(finalDisplay));
+            }
         }
     }
 

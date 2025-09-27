@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_orange_light"
+    android:background="@drawable/floating_widget_background"
     android:padding="8dp"
     android:orientation="vertical">
 
@@ -10,20 +10,21 @@
         android:id="@+id/textView_blood_sugar_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="15:30  5分钟前"
-        android:textSize="14sp"
+        android:text="5 mins ago"
+        android:textSize="12sp"
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"
-        android:padding="2dp" />
+        android:padding="1dp"
+        android:layout_marginBottom="2dp" />
 
     <TextView
         android:id="@+id/textView_blood_sugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6.5 → +0.3"
+        android:text="6.5↗ +0.3"
         android:textSize="22sp"
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"
-        android:padding="2dp" />
+        android:padding="1dp" />
 
 </LinearLayout>
