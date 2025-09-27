@@ -977,6 +977,7 @@
                 android:summary="@string/send_broadcasts_old_permission_model"
                 android:title="@string/compatible_broadcast" />
             <EditTextPreference
+                android:defaultValue="info.nightscout.androidaps"
                 android:dependency="broadcast_data_through_intents"
                 android:key="local_broadcast_specific_package_destination"
                 android:summary="@string/summary_Only_send_to_named_package"
@@ -1622,4 +1623,3 @@
 
     </PreferenceCategory>
 </PreferenceScreen>
-

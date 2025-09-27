@@ -121,10 +121,14 @@ public class FloatingWidgetService extends Service implements BloodSugarUpdateRe
         // 启动定时器
         mHandler.post(mTimeUpdateRunnable);
 
-        // 设置浮窗可拖动
+        // 设置浮窗可拖动并添加点击打开应用功能
         mFloatingWidget.setOnTouchListener(new View.OnTouchListener() {
             private int initialX, initialY;
             private float initialTouchX, initialTouchY;
+            private boolean isDragging = false;
+            private long touchStartTime = 0;
+            private static final int CLICK_TIME_THRESHOLD = 200; // 200ms内的触摸认为是点击
+            private static final int MOVE_THRESHOLD = 10; // 移动超过10像素认为是拖拽
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -134,11 +138,28 @@ public class FloatingWidgetService extends Service implements BloodSugarUpdateRe
                         initialY = params.y;
                         initialTouchX = event.getRawX();
                         initialTouchY = event.getRawY();
+                        isDragging = false;
+                        touchStartTime = System.currentTimeMillis();
                         return true;
                     case MotionEvent.ACTION_MOVE:
-                        params.x = initialX + (int) (event.getRawX() - initialTouchX);
-                        params.y = initialY + (int) (event.getRawY() - initialTouchY);
-                        mWindowManager.updateViewLayout(mFloatingWidget, params);
+                        float deltaX = event.getRawX() - initialTouchX;
+                        float deltaY = event.getRawY() - initialTouchY;
+
+                        // 检测是否开始拖拽
+                        if (Math.abs(deltaX) > MOVE_THRESHOLD || Math.abs(deltaY) > MOVE_THRESHOLD) {
+                            isDragging = true;
+                            params.x = initialX + (int) deltaX;
+                            params.y = initialY + (int) deltaY;
+                            mWindowManager.updateViewLayout(mFloatingWidget, params);
+                        }
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        long touchDuration = System.currentTimeMillis() - touchStartTime;
+
+                        // 如果没有拖拽且触摸时间很短，认为是点击
+                        if (!isDragging && touchDuration < CLICK_TIME_THRESHOLD) {
+                            openXdripApp();
+                        }
                         return true;
                 }
                 return false;
@@ -260,5 +281,12 @@ public class FloatingWidgetService extends Service implements BloodSugarUpdateRe
     @Override
     public void onBloodSugarUpdate(String bloodSugarValue) {
         updateBloodSugarValue(bloodSugarValue);
+    }
+
+    // 打开xDrip主应用
+    private void openXdripApp() {
+        Intent intent = new Intent(this, Home.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
